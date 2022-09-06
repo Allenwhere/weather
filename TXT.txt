@@ -1,0 +1,20 @@
+kafka partition:
+Breaks the one topic log into mutiple smaller logs. Each one will be write into
+one separate node in Kafaka cluster.
+
+kafka broker:
+Is just the node that hosts topics
+A Kafka cluster has exactly one broker that acts as the Controller.
+
+consumer group:
+A consumer group is a set of consumers which cooperate to consume data from some 
+topics. The partitions of all the topics are divided among the consumers in the 
+group. As new group members arrive and old members leave, the partitions are 
+re-assigned so that each member receives a proportional share of the partitions. 
+This is known as rebalancing the group.
+
+ack number:
+An ack is an acknowledgment that the producer gets from a Kafka broker to ensure 
+that the message has been successfully committed to that broker. The config acks 
+is the number of acknowledgments the producer needs to receive before considering 
+a successful commit.
