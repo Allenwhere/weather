@@ -5,6 +5,7 @@ import com.example.employee.dto.EmployeeDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -26,10 +27,10 @@ public class EmployeeService {
 
         return restTemplate.getForObject(url, EmployeeDTO.class).getData();
     }
-    public List<Employee> getAgeLargerThan(int age){
-        return restTemplate.getForObject(url, EmployeeDTO.class).getData()
-                .stream()
-                .filter(e -> e.getAge() >= age)
-                .collect(Collectors.toList());
+    public List<Employee> getAgeLargerThan(int age) {
+
+            return restTemplate.getForObject(url, EmployeeDTO.class).getData().stream()
+                    .filter(e -> e.getAge() >= age)
+                    .collect(Collectors.toList());
     }
 }

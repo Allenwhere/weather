@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class SearchController {
@@ -24,6 +26,12 @@ public class SearchController {
     @GetMapping("/weather/search/employees")
     public ResponseEntity<?> getDetails(@RequestParam List<Integer> ages) {
         //TODO
+        Map<Integer,Map> map= employeeService.fetchEmployeeByAges(ages);
+        if(map.containsKey(-11)){
+            return new ResponseEntity<>(null,HttpStatus.REQUEST_TIMEOUT);
+        }
         return new ResponseEntity<>(employeeService.fetchEmployeeByAges(ages), HttpStatus.OK);
     }
+
+
 }
