@@ -16,6 +16,7 @@
         <module>search</module>
         <module>employee</module>
         <module>authorbook</module>
+        <module>fizzbuzz</module>
     </modules>
 
     <groupId>com.example</groupId>
